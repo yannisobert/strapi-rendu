@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project",
     "pluralName": "projects",
-    "displayName": "Project"
+    "displayName": "Project",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,14 +17,39 @@
       "required": true
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "link": {
+      "type": "string"
+    },
+    "types": {
+      "type": "enumeration",
+      "enum": [
+        "perso",
+        "pro",
+        "iim"
+      ]
+    },
+    "technos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::techno.techno",
+      "inversedBy": "projects"
     }
   }
 }
